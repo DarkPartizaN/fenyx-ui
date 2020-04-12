@@ -41,11 +41,9 @@ public class UIManager {
     }
 
     public static void remove(UI ui) {
-        ui.onDestroy();
-
          for (UILayer layer : layers.values()) {
              if (layer.uis.contains(ui)) {
-                 layer.uis.remove(ui);
+                 layer.remove(ui);
                  break; //NOTE: we search for first match, cause there's no doublers of UI object in normal case though
              }
          }
